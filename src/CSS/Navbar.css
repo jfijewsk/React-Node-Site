@@ -24,6 +24,8 @@ li {
 
 a {
   text-decoration: none;
+  color: #34495e;
+  text-transform: uppercase;
 }
 
 .header{
@@ -34,6 +36,14 @@ a {
   display: flex;
   justify-content: space-between;
   padding: .5rem 1.5rem;
+  border: 1px solid #a2a2a2;
+	background-color: #f4f4f4;
+	-webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
 
 .hamburger {
@@ -47,7 +57,8 @@ a {
   margin: 5px auto;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  background-color: #101010;
+  background-color: #34495e;
+
 }
 
 .nav-menu {
@@ -66,15 +77,16 @@ a {
   color: #475569;
 }
 
-.nav-link:hover{
-  color: #482ff7;
+.nav-link:hover, .nav-logo:hover, .bar:hover {
+  color: #718daa;
 }
 
 .nav-logo {
   font-size: 1.5rem;
   font-weight: 500;
-  color: #482ff7;
+  color: #34495e;
   text-align: center;
+  padding-left: 10px;
 }
 
 .nav-logo-container{
@@ -89,7 +101,6 @@ a {
       left: -100%;
       top: 5rem;
       flex-direction: column;
-      background-color: #fff;
       width: 100%;
       border-radius: 10px;
       text-align: center;
@@ -107,9 +118,11 @@ a {
   }
 
   .hamburger {
-      display: block;
-      cursor: pointer;
-      
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+
   }
 
 }
