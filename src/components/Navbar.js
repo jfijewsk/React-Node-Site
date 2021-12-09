@@ -1,13 +1,8 @@
 import React, { useState } from "react"
-import './NavbarElements'
-import {NavbarLogo } from './NavbarElements'
 import '../CSS/Navbar.css'
 import '../Assests/fonts/Montserrat-Regular.ttf'
 import CircleFace from '../Assests/images/Sue.png'
-import { bool, func } from 'prop-types';
 
-
-/* <img src={CircleFace} alt="logo" className="navbar-circleface" /> */
 
 export default function Navbar(){
     
@@ -23,7 +18,8 @@ export default function Navbar(){
                 <a href="#" className="nav-logo">James Fijewski</a>
             </div >
 
-            <ul className="nav-menu">
+            {/* Mobile nav-menu open or close */}
+            <ul className={`nav-menu ${open ? "open" : ""}`}>
                 <li className="nav-item">
                     <a href="#" className="nav-link">Hobbies</a>
                 </li>
@@ -36,14 +32,16 @@ export default function Navbar(){
 
             </ul>
 
-            <button className="hamburger" onClick={() => {
-                    console.log('hamburger was clicked');
+            <button className={`hamburger ${open ? "open" : ""}`} onClick={() => {
                     setOpen(!open);
                 }}>
-                <span className="bar"></span>
-                <span className="bar"></span>
-                <span className="bar"></span>
+                <span className="bar bar1"></span>
+                <span className="bar bar2"></span>
+                <span className="bar bar3"></span>
+
+
             </button>
+          
         </nav>
 </header>
     )
