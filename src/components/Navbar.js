@@ -4,6 +4,7 @@ import '../Assests/fonts/Montserrat-Regular.ttf'
 import CircleFace from '../Assests/images/Sue.png'
 
 
+
 export default function Navbar(){
     
     // Hide navbar by defualt
@@ -11,6 +12,7 @@ export default function Navbar(){
 
     return (
 
+<div>
         <header className="header">
         <nav className="navbar">
             <div className='nav-logo-container'>
@@ -21,7 +23,7 @@ export default function Navbar(){
             {/* Mobile nav-menu open or close */}
             <ul className={`nav-menu ${open ? "open" : ""}`}>
                 <li className="nav-item">
-                    <a href="#" className="nav-link">Hobbies</a>
+                    <a href="#" className="nav-link">About Me</a>
                 </li>
                 <li className="nav-item">
                     <a href="#" className="nav-link">Resume</a>
@@ -39,11 +41,12 @@ export default function Navbar(){
                 <span className="bar bar2"></span>
                 <span className="bar bar3"></span>
 
-
             </button>
-          
         </nav>
-</header>
+    </header>
+
+</div>
+
     )
 }
 

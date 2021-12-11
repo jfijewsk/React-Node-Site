@@ -1,0 +1,121 @@
+
+:root {
+    --background-color: #f4f4f4;
+    --hiring-background-color: #2b97b8;
+  }
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color)
+}
+
+.world {
+    display: inline-block;
+    width: 100%;
+}
+
+.title {
+    align-items: center;
+    text-align: center;
+    margin: 20px auto;
+
+}
+
+.name {
+    
+    font-size: 6vw;
+    font-weight: 400;
+    color: #475569;
+}
+
+.main-text {
+    width: 80%;
+    padding: .5rem;
+    box-sizing: border-box;
+    margin: .3rem auto;
+    font-size: 4vw;
+    font-weight: 400;
+    color: #475569;
+}
+
+.divider {
+    border-top: 4px solid #bbb;
+    width: 75%;
+    margin: 0 auto;
+    padding: 0.5rem 50px;
+    
+}
+
+.role {
+    padding: 5px;
+    text-align: center;
+    background-color: var(--hiring-background-color);
+    color: white;
+    font-size: 6vw;
+    font-family: "rajdhani";
+    width: 100%;
+    margin: .3rem auto;
+}
+
+.now-hiring {
+    padding: 15px;
+    display: inline-block;
+    width: 100%;
+    background-color: var(--hiring-background-color);
+}
+
+.job-description {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 1.5rem;
+
+}
+
+.job-text {
+    width: 90%;
+    padding: .5rem;
+    box-sizing: border-box;
+    margin: 3vw auto;
+    font-size: 3vw;
+    font-weight: 400;
+    color: #475569;
+    text-align: left;
+    background-color: #eaf0f3;
+    border: 1.5px solid black;
+}
+.video-container iframe, .video-container object, .video-container embed {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    border: 3px solid black;
+    margin: .5vw auto;
+}
+
+.video-container { 
+    position: relative; 
+    padding-bottom: 56.25%; 
+    padding-top: 30px; 
+    height: 0; 
+    overflow: hidden; 
+}
+
+ul {
+    font-size: 14px;
+    margin-left: 10px;
+
+
+  }
+
+  ul li {
+    list-style-type: circle;
+    margin-left: 20px;
+    color: #475569;
+    font-size: 3vw;
+    font-weight: 400;
+  }
+

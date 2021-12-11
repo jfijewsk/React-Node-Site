@@ -19,3 +19,10 @@ code {
    url('./Assests/fonts/Montserrat-Regular.ttf') format("truetype");
   font-weight: bold;
   }
+
+  @font-face {
+    font-family: "rajdhani";
+    src: local("Rajdhani-SemiBold"),
+     url('./Assests/fonts/Rajdhani-SemiBold.ttf') format("truetype");
+    font-weight: bold;
+    }
