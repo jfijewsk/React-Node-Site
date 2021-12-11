@@ -20,14 +20,19 @@ function App() {
       </div>
 
       <div className='title'>
-        <div className='name'>James Fijewski <br/></div>
-        <div className='divider'></div>
-        <div className='main-text'> 
-          Motivated and self-driven indivudual with experience working in an technical environment.
-          Recent Software Engineering graduate excited to enter a software deveolpment career.<br />
+        <div className='name'>James Fijewski <br/>
         </div>
         <div className='divider'></div>
         <div className='main-text'> 
+          Motivated and self-driven indivudual with experience working in an technical environment.
+          Recent Software Engineering graduate excited to enter a software deveolpment career.<br /><br />
+
+          Contact me at: <br />
+          817-992-5652<br />
+          <a href = "mailto: James.Fijewski@gmail.com">James.Fijewski@gmail.com</a>
+        </div>
+        <div className='divider'></div>
+        <div className='name'> 
         My background:
         </div>
       </div>
@@ -95,16 +100,16 @@ function App() {
           Being a life long computer nerd, I decided to see how the world of software engineering worked. In fall of 2015, I enrolled in the software engineering program
           at Arizona State Univeristy. I choose ASU for a few reasons:<br/><br/>
           <ul>
-            <li>
+            <li className='ASU-list'>
               There were no schools near me that allowed me to be able to quickly get from work to school in the afternoons. Time was limited due to maintaining my full time job 
               as a technical trainer while taking 9 to 12 credit hour semesters and I needed to squeeze as much time as possible out of my schedule. Communiting more than an hour 
               in rush hour traffic would only allow me to take a limited number of classes a semester and greatly increase the amount of time needed to complete my degree.
             </li><br/>
-            <li>
+            <li className='ASU-list'>
               ASU offered an online degree that closely mirrored other engineering fields. Some online degrees I looked into did not cover mathematics or other core engineering 
               courses. In addition, the degree is ABET accredided. 
             </li><br/>
-            <li>
+            <li className='ASU-list'>
               There are a lot of online schools that are relatively new and I was not sure if I would get a good education from them. ASU was established in 1885 and
               has a long track history.
             </li><br/>
@@ -126,10 +131,10 @@ function App() {
 
         <div className='job-description'> 
           <div className='job-text'>
-          So here we are. You are looking for a software deveopler and I am looking to join a software engineering team. I would love a chance to grow as an 
+          So here we are. You are looking for a software deveopler and I am looking to join a software deveoplment team. I would love a chance to grow as an 
           indivudal within your team if you give me a chance. <br/><br/>
           
-          I want to thank for your time to learn about me and humor my personal website. 
+          I want to thank for your time to learn about me and for humoring my personal website. 
           </div>
 
         </div>

@@ -17,7 +17,7 @@ export default function Navbar(){
         <nav className="navbar">
             <div className='nav-logo-container'>
                 <img src={CircleFace} className="navbar-circleface" />
-                <a href="#" className="nav-logo">James Fijewski</a>
+                <a href="#" className="nav-logo">JAMES FIJEWSKI</a>
             </div >
 
             {/* Mobile nav-menu open or close */}
