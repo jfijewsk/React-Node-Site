@@ -12,8 +12,53 @@
 }
 
 .world {
-    display: inline-block;
+    
+     background-color: rgb(25,25,25);  
+    /* background: url('../Assests/images/WorldNew.png'); */
+    min-height: 30vh;
+    max-height: 50vh;
     width: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: block;
+    margin: 0px auto; 
+    opacity: 0;
+
+    
+
+}
+
+.banner-container{
+  background-color: rgb(25,25,25);  
+
+}
+
+.world-text{
+
+    color: #ffffff;
+
+    width: 24em;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255,255,255,.75);
+    font-size: 180%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    background: none;
+
+    position: absolute;
+    top: 30vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.console {
+    background-color: rgb(25,25,25);  
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
     
 }
 
@@ -119,4 +164,141 @@ li.ASU-list {
     background-color: #eaf0f3;
 
   }
+
+  .console-text:after{
+      position: absolute;
+      margin-top: -20vh; 
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: none;
+      color: #ffffff;
+      animation:  animated-text 6s linear ;
+      animation-fill-mode: forwards;
+      animation-delay: 2s;
+      content:"";
+      white-space: nowrap; 
+      overflow: hidden;
+      font-size: 3vh;
+  }
+
+  /* Console Animation */
+  @keyframes animated-text{
+    0% {
+      content: "P";
+    }
+    4% {
+      content: "Pr";
+    }
+    8% {
+      content: "Pri";
+    }
+    12% {
+      content: "Prin";
+    }
+    16% {
+      content: "Print";
+    }
+    20% {
+      content: "Print(";
+    }
+    24% {
+      content: "Print('";
+    }
+    28% {
+      content: "Print('H";
+    }
+    32% {
+      content: "Print('He";
+    }
+    36% {
+      content: "Print('Hel";
+    }
+    40% {
+      content: "Print('Hell";
+    }
+    44% {
+      content: "Print('Helll";
+    }
+    48% {
+      content: "Print('Helllo";
+    }
+    52% {
+      content: "Print('Helll";
+    }
+    56% {
+      content: "Print('Hell";
+    }
+    60% {
+      content: "Print('Hello";
+    }
+    64% {
+      content: "Print('Hello ";
+    }
+    68% {
+      content: "Print('Hello W";
+    }
+    72% {
+      content: "Print('Hello Wo";
+    }
+    76% {
+      content: "Print('Hello Wor";
+    }
+    80% {
+      content: "Print('Hello Worl";
+    }
+    84% {
+      content: "Print('Hello World";
+    }
+    88% {
+      content: "Print('Hello World!";
+    }
+    92% {
+      content: "Print('Hello World!')";
+      opacity: 1;
+
+    }
+    96% {
+      content: "Print('Hello World!')";
+      opacity: .5;
+    }
+    100% {
+      content: "Print('Hello World!')";
+      opacity: 0;
+    }
+  }
+  
+  /* cursor animation */
+  @keyframes animated-cursor{
+    from{border-right-color: rgba(0,255,0,.75);}
+    to{border-right-color: transparent;}
+  }
+
+  .anim-background{
+    animation: changeBg 5s ;
+    animation-delay: 7s;
+    animation-fill-mode: forwards;
+
+  }
+
+  @keyframes changeBg {
+    0% {
+      
+      opacity: 0;
+    }
+    25% {
+      opacity: 0;
+    }
+    75% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+      
+      
+    }
+  }
+
+
+
+
 

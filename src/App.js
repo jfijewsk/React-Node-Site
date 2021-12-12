@@ -2,7 +2,7 @@ import './App.css';
 import './CSS/Home.css'
 import './components/Navbar'
 import Navbar from './components/Navbar';
-import World from './Assests/images/WorldNew.png'
+import World from './Assests/images/WorldNewHello.png'
 import NowHiring from './Assests/images/NowHiringNew.png'
 import NowGraduating from './Assests/images/NowGraduating.png'
 import './Assests/fonts/Montserrat-Regular.ttf'
@@ -15,10 +15,14 @@ function App() {
     <div className="font-face">
       <Navbar/>
 
-      <div>
-       <img src={World} className="world" />
-      </div>
+      <div className='banner-container'>
+        <div className="console">
+        <img src={World} className="world anim-background" />
 
+        </div>
+        <div className='console-text anim-typewriter'>
+          </div>
+      </div>
       <div className='title'>
         <div className='name'>James Fijewski <br/>
         </div>
