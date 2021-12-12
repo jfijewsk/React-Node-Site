@@ -7,7 +7,18 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    
+    font-size: 20px;
+}
+
+@media screen and (min-width: 320px) {
+  * {
+    font-size: calc(18px + 6 * ((100vw - 320px) / 680));
+  }
+}
+@media screen and (min-width: 1000px) {
+  * {
+    font-size: 30px;
+  }
 }
 
   .navbar-circleface{
@@ -70,7 +81,6 @@ a {
 }
 
 .nav-link{
-  font-size: 1.3rem;
   font-weight: 400;
   color: #475569;
   background-color: var(--background-color);
@@ -81,7 +91,6 @@ a {
 }
 
 .nav-logo {
-  font-size: 1.5rem;
   font-weight: 500;
   color: #34495e;
   text-align: center;
@@ -117,10 +126,13 @@ a {
       -webkit-border-radius: 3px;
       -moz-border-radius: 3px;
       border-radius: 3px;
+      z-index: 1;
+
   }
 
   .nav-menu.open {
     left: 0;
+    z-index: 1;
 }
 
   .nav-item {

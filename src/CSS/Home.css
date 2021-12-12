@@ -8,7 +8,20 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: var(--background-color)
+    background-color: var(--background-color);
+    font-size: 30px;
+}
+
+
+@media screen and (min-width: 320px) {
+  * {
+    font-size: calc(18px + 6 * ((100vw - 320px) / 680));
+  }
+}
+@media screen and (min-width: 1000px) {
+  * {
+    font-size: 30px;
+  }
 }
 
 .world {
@@ -16,7 +29,7 @@
      background-color: rgb(25,25,25);  
     /* background: url('../Assests/images/WorldNew.png'); */
     min-height: 30vh;
-    max-height: 50vh;
+    max-height: 80vh;
     width: 100%;
     background-attachment: fixed;
     background-position: center;
@@ -24,8 +37,6 @@
     display: block;
     margin: 0px auto; 
     opacity: 0;
-
-    
 
 }
 
@@ -41,7 +52,6 @@
     width: 24em;
     margin: 0 auto;
     border-right: 2px solid rgba(255,255,255,.75);
-    font-size: 180%;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
@@ -71,7 +81,6 @@
 
 .name {
     
-    font-size: 6vw;
     font-weight: 400;
     color: #475569;
 }
@@ -81,7 +90,6 @@
     padding: .5rem;
     box-sizing: border-box;
     margin: .3rem auto;
-    font-size: 4vw;
     font-weight: 400;
     color: #475569;
 }
@@ -125,7 +133,6 @@
     padding: .5rem;
     box-sizing: border-box;
     margin: 3vw auto;
-    font-size: 3vw;
     font-weight: 400;
     color: #475569;
     text-align: left;
@@ -151,7 +158,6 @@
 }
 
 ul {
-    font-size: 14px;
     background-color: #eaf0f3;
   }
 
@@ -159,7 +165,6 @@ li.ASU-list {
     list-style-type: circle;
     margin-left: 3vw;
     color: #475569;
-    font-size: 3vw;
     font-weight: 400;
     background-color: #eaf0f3;
 
@@ -172,100 +177,31 @@ li.ASU-list {
       transform: translate(-50%, -50%);
       background: none;
       color: #ffffff;
-      animation:  animated-text 6s linear ;
+      animation:  animated-text 6s linear,
+                  animated-cursor 500ms steps(44) infinite normal ;
       animation-fill-mode: forwards;
       animation-delay: 2s;
       content:"";
       white-space: nowrap; 
       overflow: hidden;
-      font-size: 3vh;
   }
 
-  /* Console Animation */
-  @keyframes animated-text{
-    0% {
-      content: "P";
-    }
-    4% {
-      content: "Pr";
-    }
-    8% {
-      content: "Pri";
-    }
-    12% {
-      content: "Prin";
-    }
-    16% {
-      content: "Print";
-    }
-    20% {
-      content: "Print(";
-    }
-    24% {
-      content: "Print('";
-    }
-    28% {
-      content: "Print('H";
-    }
-    32% {
-      content: "Print('He";
-    }
-    36% {
-      content: "Print('Hel";
-    }
-    40% {
-      content: "Print('Hell";
-    }
-    44% {
-      content: "Print('Helll";
-    }
-    48% {
-      content: "Print('Helllo";
-    }
-    52% {
-      content: "Print('Helll";
-    }
-    56% {
-      content: "Print('Hell";
-    }
-    60% {
-      content: "Print('Hello";
-    }
-    64% {
-      content: "Print('Hello ";
-    }
-    68% {
-      content: "Print('Hello W";
-    }
-    72% {
-      content: "Print('Hello Wo";
-    }
-    76% {
-      content: "Print('Hello Wor";
-    }
-    80% {
-      content: "Print('Hello Worl";
-    }
-    84% {
-      content: "Print('Hello World";
-    }
-    88% {
-      content: "Print('Hello World!";
-    }
-    92% {
-      content: "Print('Hello World!')";
-      opacity: 1;
-
-    }
-    96% {
-      content: "Print('Hello World!')";
-      opacity: .5;
-    }
-    100% {
-      content: "Print('Hello World!')";
-      opacity: 0;
-    }
-  }
+  .console-text::before{
+    position: absolute;
+    margin-top: -20vh; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: none;
+    color: #ffffff;
+    animation:  
+                animated-cursor 500ms steps(44) infinite normal ;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+    content:"";
+    white-space: nowrap; 
+    overflow: hidden;
+    border-right-color: rgba(0,255,0,.75)
+}
   
   /* cursor animation */
   @keyframes animated-cursor{
@@ -294,10 +230,94 @@ li.ASU-list {
     100% {
       opacity: 1;
       
-      
     }
   }
 
+    /* Console Animation */
+    @keyframes animated-text{
+      0% {
+        content: "P";
+      }
+      4% {
+        content: "Pr";
+      }
+      8% {
+        content: "Pri";
+      }
+      12% {
+        content: "Prin";
+      }
+      16% {
+        content: "Print";
+      }
+      20% {
+        content: "Print(";
+      }
+      24% {
+        content: "Print('";
+      }
+      28% {
+        content: "Print('H";
+      }
+      32% {
+        content: "Print('He";
+      }
+      36% {
+        content: "Print('Hel";
+      }
+      40% {
+        content: "Print('Hell";
+      }
+      44% {
+        content: "Print('Helll";
+      }
+      48% {
+        content: "Print('Helllo";
+      }
+      52% {
+        content: "Print('Helll";
+      }
+      56% {
+        content: "Print('Hell";
+      }
+      60% {
+        content: "Print('Hello";
+      }
+      64% {
+        content: "Print('Hello ";
+      }
+      68% {
+        content: "Print('Hello W";
+      }
+      72% {
+        content: "Print('Hello Wo";
+      }
+      76% {
+        content: "Print('Hello Wor";
+      }
+      80% {
+        content: "Print('Hello Worl";
+      }
+      84% {
+        content: "Print('Hello World";
+      }
+      88% {
+        content: "Print('Hello World!";
+      }
+      92% {
+        content: "Print('Hello World!')";
+        opacity: 1;
+  
+      }
+      96% {
+        content: "Print('Hello World!')";
+        opacity: .5;
+      }
+      100% {
+        content: "Print('Hello World!')";
+        opacity: 0;
+      }
+    }
 
 
 
