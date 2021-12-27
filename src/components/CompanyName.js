@@ -1,24 +1,6 @@
 import React, {useState, Component} from 'react';
 import '../CSS/Home.css';
 
-
-/*
-export default function CompanyName (){
-
-    const [compName, setCompName] = useState('your company');
-      
-
-    return(
-            <div className='now-hiring'>
-                {compName}
-
-            </div>
-        
-    )
-}
-*/
-
-
 export default class CompanyName extends React.Component {
     constructor(props) {
       super(props);
@@ -46,10 +28,10 @@ export default class CompanyName extends React.Component {
         }
 
           return(
-        <div className='now-hiring'>
+        <>
         {this.state.compName} 
 
-    </div>
+    </>
       );}
     
   }

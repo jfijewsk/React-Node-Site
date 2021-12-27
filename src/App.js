@@ -131,7 +131,7 @@ function App() {
       
       <img src={NowHiring} className="now-hiring" />
       <br/>Software Developer
-        at <CompanyName></CompanyName><br/>
+        at<br/> <CompanyName></CompanyName>
       </div>
 
         <div className='job-description'> 
