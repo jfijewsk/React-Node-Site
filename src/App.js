@@ -7,6 +7,7 @@ import NowHiring from './Assests/images/NowHiringNew.png'
 import NowGraduating from './Assests/images/NowGraduating.png'
 import './Assests/fonts/Montserrat-Regular.ttf'
 import './Assests/fonts/Rajdhani-SemiBold.ttf'
+import CompanyName from './components/CompanyName';
 
 
 function App() {
@@ -18,9 +19,9 @@ function App() {
       <div className='banner-container'>
         <div className="console">
         <img src={World} className="world anim-background" />
-
-        </div>
         <div className='console-text anim-typewriter'>
+        </div>
+
           </div>
       </div>
       <div className='title'>
@@ -129,8 +130,8 @@ function App() {
       <div className='role'>
       
       <img src={NowHiring} className="now-hiring" />
-      <br/>Software Developer<br/>
-        at ...
+      <br/>Software Developer
+        at <CompanyName></CompanyName><br/>
       </div>
 
         <div className='job-description'> 
@@ -148,3 +149,7 @@ function App() {
 }
 
 export default App;
+
+
+
+
