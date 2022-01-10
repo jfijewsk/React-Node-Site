@@ -11,4 +11,11 @@ router.get('/', function(req, res, next) {
 
 });
 
+/* GET API page. */
+router.get('/api', function(req, res, next) {
+
+     res.send('Welcome to my api page');
+ 
+ });
+
 module.exports = router;
