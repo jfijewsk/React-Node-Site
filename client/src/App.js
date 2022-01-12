@@ -18,7 +18,7 @@ class App extends Component {
   }
 
     callAPI() {
-        fetch("3.130.116.16:9000/")
+        fetch("/api")
             .then(res => res.text())
             .then((res) => this.setState({ apiResponse: res }))
             .catch(err => console.log(err));
