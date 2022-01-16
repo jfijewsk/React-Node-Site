@@ -23,11 +23,9 @@ router.get('/api', function(req, res, next) {
 
  /* GET API page. */
 router.get('/api/json', async (req, res) => {
-
-    console.log(controller.getClientAddress(req))
     
-    console.log("Is this the IP: " +  req.header('x-forwarded-for') || req.connection.remoteAddress)
-    console.log("I think the IP is " + req.ip);
+    //console.log("Is this the IP: " +  req.header('x-forwarded-for') || req.connection.remoteAddress)
+    console.log("Client resquest from: " + controller.getClientAddress(req));
 
     var url ="http://ip-api.com/json/" + controller.getClientAddress(req);
     axios.get(url)

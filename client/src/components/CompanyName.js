@@ -22,7 +22,7 @@ export default class CompanyName extends React.Component {
 
       render () {
         console.log("This is what react sees" + JSON.stringify(this.state));
-        if(this.state.apiSuccess == 'fail'){
+        if(this.state.apiSuccess == 'fail' || this.state.isp == this.state.org){
             this.state.compName = 'your company';
         }
 
