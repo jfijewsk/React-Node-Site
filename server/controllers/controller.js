@@ -18,8 +18,9 @@ function getCompanyName(ip) {
     // The whole response has been received. Print out the result.
     resp.on('end', () => {
         // console.log('response ' + JSON.parse(data).org);
-        this.result = JSON.parse(data).org;
-        return(result);
+        //this.result = JSON.parse(data).org;
+        //console.log('result ' + result);
+        return(JSON.parse(data));
     });
     
     }).on("error", (err) => {

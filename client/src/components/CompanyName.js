@@ -6,13 +6,12 @@ export default class CompanyName extends React.Component {
       super(props);
   
       this.state = {compName: 'your company', 
-                    ip: 'http://ip-api.com/json/208.73.132.195',
+                    apiAddress: '/api/json',
                     apiSuccess: 'fail'};
-
     }
   
     componentDidMount() {
-      fetch(this.state.ip)
+      fetch(this.state.apiAddress)
       .then(response => response.json())
       .then(data => this.setState({apiSuccess: data.status, compName: data.org}))
 
@@ -22,7 +21,7 @@ export default class CompanyName extends React.Component {
     }
 
       render () {
-        //console.log(this.state.apiSuccess);
+        console.log("This is what react sees" + JSON.stringify(this.state));
         if(this.state.apiSuccess == 'fail'){
             this.state.compName = 'your company';
         }
