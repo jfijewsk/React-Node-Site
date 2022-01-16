@@ -24,6 +24,7 @@ router.get('/api', function(req, res, next) {
 router.get('/api/json', async (req, res) => {
 
     console.log(controller.getClientAddress(req))
+    console.log(res.req.socket.remoteAddress);
 
     var url ="http://ip-api.com/json/" + controller.getClientAddress(req);
     axios.get(url)
