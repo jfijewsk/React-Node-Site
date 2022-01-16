@@ -3,6 +3,7 @@ var router = express.Router();
 var controller = require('../controllers/controller')
 const axios = require('axios');
 
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
    // controller.getCompanyName('208.73.132.195');
@@ -24,10 +25,9 @@ router.get('/api', function(req, res, next) {
 router.get('/api/json', async (req, res) => {
 
     console.log(controller.getClientAddress(req))
-    var ip = req.headers['x-forwarded-for'] ||
-     req.socket.remoteAddress ||
-     null;
-    console.log("I think the IP is " + ip);
+    
+    console.log("Is this the IP: " +  req.header('x-forwarded-for') || req.connection.remoteAddress)
+    console.log("I think the IP is " + req.ip);
 
     var url ="http://ip-api.com/json/" + controller.getClientAddress(req);
     axios.get(url)
