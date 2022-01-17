@@ -1,4 +1,5 @@
-const http = require('http');
+var MongoClient = require('mongodb').MongoClient;
+var DbConnection = require('./database');
 
 function getCompanyName(ip) {
     var result = '';
@@ -35,5 +36,19 @@ function getClientAddress(req) {
 };
 
 
+// MongoDB 
+async function getAllHistory(){
+    try{
+        let db = await DbConnection.Get();
+        result = await db.collection("visitors").find({}).toArray(function(err, result) {
+            console.log(result);
+            return result;
+        });
+    }
+    catch(err){
+        console.log("Failed to get all database history\n" + err);
+    }
+}
 
-module.exports = {getCompanyName, getClientAddress};
+
+module.exports = {getCompanyName, getClientAddress, getAllHistory};

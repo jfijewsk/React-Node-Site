@@ -6,6 +6,7 @@ var logger = require('morgan');
 var cors = require('cors');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var dbController = require('./controllers/database');
 
 var app = express();
 
@@ -40,5 +41,9 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+// Connect Database
+dbController.Get();
+
 
 module.exports = app;
