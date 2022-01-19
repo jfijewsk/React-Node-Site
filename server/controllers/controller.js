@@ -1,6 +1,14 @@
 var MongoClient = require('mongodb').MongoClient;
 var DbConnection = require('./database');
 
+class Visit {
+    constructor(ip, org = "your company"){
+        this.ip = ip;
+        this.org = org;
+        this.date = new Date().toLocaleString("en-US", {timeZone: "America/Chicago"})
+    }
+}
+
 function getCompanyName(ip) {
     var result = '';
 
@@ -36,7 +44,8 @@ function getClientAddress(req) {
 };
 
 
-// MongoDB 
+/* MongoDB */
+// Returns the entire database
 async function getAllHistory(){
     try{
         let db = await DbConnection.Get();
@@ -50,5 +59,48 @@ async function getAllHistory(){
     }
 }
 
+async function findIP(ip){
+    try{
+        let db = await DbConnection.Get();
+        var query = {IP: ip};
+        db.collection("visitors").findOne(query), function(err, visitor) {
+            return visitor.org;
+        };
+    }
+    catch(err){
+        console.log("Could not search database for an IP.\n");
+        console.log(err);
+    }
+}
 
-module.exports = {getCompanyName, getClientAddress, getAllHistory};
+// Adds visitor instance
+async function addVisit(visit){
+    try {
+        let db = await DbConnection.Get();
+        db.collection("visitors").insertOne(visit);
+    }
+
+    catch(err){
+        console.log("Could not add visit do database.\n");
+        console.log(err);
+    }
+}
+
+// Delete all database data
+async function clearDatabase(){
+    try {
+        let db = await DbConnection.Get();
+        db.collection("visitors").drop();
+        console.log("Database cleared!\n");
+
+    }
+
+    catch(err){
+        console.log("Could not delete database.\n");
+        console.log(err);
+    }
+}
+
+
+
+module.exports = {getCompanyName, getClientAddress, getAllHistory, findIP, addVisit, clearDatabase, Visit};
