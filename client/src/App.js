@@ -28,6 +28,10 @@ class App extends Component {
         this.callAPI();
     }
 
+    componentDidMount(){
+      document.title = 'James Fijewski';
+    }
+
     render() {
             return (
               
