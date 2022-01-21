@@ -1,5 +1,4 @@
 import React, {useState, Component} from 'react';
-import '../CSS/Home.css';
 
 export default class CompanyName extends React.Component {
     constructor(props) {

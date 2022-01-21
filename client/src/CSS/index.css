@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  font-family: "MontserratReg";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+@font-face {
+  font-family: "MontserratReg";
+  src: local("MontserratReg"),
+   url('../Assests/fonts/Montserrat-Regular.ttf') format("truetype");
+  font-weight: bold;
+  }
+
+  @font-face {
+    font-family: "rajdhani";
+    src: local("Rajdhani-SemiBold"),
+     url('../Assests/fonts/Rajdhani-SemiBold.ttf') format("truetype");
+    font-weight: bold;
+    }
