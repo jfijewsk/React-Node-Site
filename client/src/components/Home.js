@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
-import World from '../Assests/images/WorldNewHello.png'
-import NowHiring from '../Assests/images/NowHiringNew.png'
-import NowGraduating from '../Assests/images/NowGraduating.png'
+import World from '../Assests/images/WorldNewHello.png';
+import NowHiring from '../Assests/images/NowHiringNew.png';
+import NowGraduating from '../Assests/images/NowGraduating.png';
 import CompanyName from './CompanyName';
 
 import '../CSS/App.css';
 import '../CSS/Home.css';
 
-import '../Assests/fonts/Montserrat-Regular.ttf'
-import '../Assests/fonts/Rajdhani-SemiBold.ttf'
+import '../Assests/fonts/Montserrat-Regular.ttf';
+import '../Assests/fonts/Rajdhani-SemiBold.ttf';
 
 class Home extends Component {
 

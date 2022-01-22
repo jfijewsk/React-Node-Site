@@ -17,7 +17,7 @@
 }
 
 
-.text {
+.bodytext {
     width: 90%;
     padding: .5rem;
     box-sizing: border-box;
@@ -31,13 +31,13 @@
 .image-txt-container {
     display:flex;
     align-items:center;
-    padding:1vw 3vw 1vw 1vw;
+    padding:1vw 3vw;
     min-width: fit-content;
 
   }
 
 
-.image{
+.images{
     display: flex;
     justify-content: center; 
     align-items: center;
@@ -75,7 +75,7 @@
           order:-1;
       }
 
-      .image{
+      .images{
         max-width: 100vw;
       }
 
@@ -96,7 +96,7 @@
         order:0;
     }
 
-    .image{
+    .images{
         max-width: 40vw;
 
     }
