@@ -1,58 +1,80 @@
-var express = require('express');
-var router = express.Router();
-var controller = require('../controllers/controller')
+const express = require('express');
+const app = express();
+const router = express.Router();
+const controller = require('../controllers/controller')
 const axios = require('axios');
-var MongoClient = require('mongodb').MongoClient;
-const { JSONCookies } = require('cookie-parser');
+const MongoClient = require('mongodb').MongoClient;
+const config = require('../config.json');
+const jwt = require('jsonwebtoken');
+const withAuth = require('../controllers/authMiddleware');
 
+/* Admin Login. */
+router.post('/api/authenticate', function (req, res, next) {
+    console.log("Someone trying to log on with :" + JSON.stringify(req.body.user));
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-   // controller.getCompanyName('208.73.132.195');
-    //console.log('result in index= ' + controller.getCompanyName('208.73.132.195'));
-    //console.log('Clients IP = ' + controller.getClientAddress(req));
-   // res.send('result = ' + controller.getCompanyName('208.73.132.195'));
+    try {
+        if (req.body.user === config.admin && req.body.pass === config.pass) {
+            // Send token
+            const userName = config.admin
+            const payload = { userName };
+            const token = jwt.sign(payload, config.tokenKey, {
+                expiresIn: '1h'
+            });
+            res.cookie('token', token, { httpOnly: true })
+                .sendStatus(200);
+        }
+        else {
+            res.sendStatus(401)
+        }
+    }
+    catch (err) {
+        console.log(err);
+    }
 
 });
 
-/* GET API page. */
-router.get('/api', function(req, res, next) {
+/* GET check clients token*/
+app.get('/api/checkToken', withAuth, function (req, res) {
+    res.sendStatus(200);
+});
 
-    console.log(controller.getCompanyName('208.73.132.195'));
-     res.send(controller.getCompanyName('208.73.132.195'));
- });
+/* GET visitor information (use middleware token check [withAuth])*/
+router.get('/api/visitors', withAuth, function (req, res, next) {
+    res.send("My API Visitor page");
+});
 
-  /* Clear database. */
-  router.get('/api/clear', function(req, res, next) {
+
+/* Clear database. */
+router.get('/api/clear', function (req, res, next) {
     controller.clearDatabase();
-     res.send('Database cleared');
- });
+    res.send('Database cleared');
+});
 
 
- /* GET API page. */
+/* GET API page. */
 router.get('/api/json', async (req, res) => {
-    
+
     //console.log("Is this the IP: " +  req.header('x-forwarded-for') || req.connection.remoteAddress)
     //console.log("Client resquest from: " + controller.getClientAddress(req));
     var visitorIP = controller.getClientAddress(req)
-    var url ="http://ip-api.com/json/" + visitorIP;
+    var url = "http://ip-api.com/json/" + visitorIP;
 
     // Check to see if IP data is in database
     controller.getAllHistory();
     var visit;
     result = await controller.findIP(visitorIP)
 
-        if(result){
-            // Found the IP in the database
-            console.log("same visitor");
-            visit = new controller.Visit(visitorIP, result.org);
-        }
-        else {
-            // New Visitor based of IP
-            console.log("new visitor");
-            
-            // Retrieve IP infromation if not in the database
-            await axios.get(url)
+    if (result) {
+        // Found the IP in the database
+        console.log("same visitor");
+        visit = new controller.Visit(visitorIP, result.org);
+    }
+    else {
+        // New Visitor based of IP
+        console.log("new visitor");
+
+        // Retrieve IP infromation if not in the database
+        await axios.get(url)
             .then(response => {
                 console.log("axios response: " + response.data.status);
                 // console.log(response.data);
@@ -64,8 +86,7 @@ router.get('/api/json', async (req, res) => {
             });
 
 
-        }
-    
+    }
 
 
     // Log vistor traffic in the database
@@ -73,8 +94,10 @@ router.get('/api/json', async (req, res) => {
     controller.addVisit(visit);
     res.sendStatus(200);
 
- }
- 
- );
+}
+
+);
+
+
 
 module.exports = router;

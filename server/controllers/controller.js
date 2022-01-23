@@ -1,6 +1,7 @@
 var MongoClient = require('mongodb').MongoClient;
 var DbConnection = require('./database');
 
+/* Custom class for visit information */
 class Visit {
     constructor(ip, org = "your company"){
         this.ip = ip;
@@ -9,6 +10,7 @@ class Visit {
     }
 }
 
+/* 3rd party API call to get clients IP information*/
 function getCompanyName(ip) {
     var result = '';
 
@@ -39,13 +41,17 @@ function getCompanyName(ip) {
 
 }
 
+/* Returns clients IP */
 function getClientAddress(req) {
     return req.ip.split(":").pop();
 };
 
 
-/* MongoDB */
-// Returns the entire database
+/******
+ MongoDB 
+*******/
+
+/* Returns the entire database*/
 async function getAllHistory(){
     try{
         let db = await DbConnection.Get();
@@ -59,6 +65,8 @@ async function getAllHistory(){
     }
 }
 
+/* Returns the visitors organization if it is in the MongoDB already*/
+/* Prevents the need to always call the outside IP API call for each visitor*/
 async function findIP(ip){
     try{
         let db = await DbConnection.Get();
@@ -73,7 +81,7 @@ async function findIP(ip){
     }
 }
 
-// Adds visitor instance
+/* Adds visitor instance to the database */
 async function addVisit(visit){
     try {
         let db = await DbConnection.Get();
@@ -86,7 +94,7 @@ async function addVisit(visit){
     }
 }
 
-// Delete all database data
+/* Delete all database data */
 async function clearDatabase(){
     try {
         let db = await DbConnection.Get();

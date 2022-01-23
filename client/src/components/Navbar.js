@@ -17,7 +17,9 @@ export default function Navbar() {
             <header className="header">
                 <nav className="navbar">
                     <div className='nav-logo-container'>
-                        <img src={CircleFace} className="navbar-circleface" />
+                    <Link to="/login">
+                        <img src={CircleFace} className="navbar-circleface"/>
+                    </Link>    
                         <Link className='nav-logo' to="/">James Fijewski</Link>
                     </div >
 
