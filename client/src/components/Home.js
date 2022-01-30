@@ -17,17 +17,6 @@ class Home extends Component {
         this.state = { apiResponse: ''};
       }
     
-        callAPI() {
-            fetch("/api/json")
-                .then(res => res.text())
-                .then((res) => this.setState({ apiResponse: res }))
-                .catch(err => console.log(err));
-        }
-    
-        componentWillMount() {
-            this.callAPI();
-        }
-    
         componentDidMount(){
           document.title = 'James Fijewski';
         }
@@ -40,7 +29,7 @@ class Home extends Component {
                     
                     <div className='banner-container'>
                       <div className="console">
-                      <img src={World} className="world anim-background" />
+                      <img src={World} className="world anim-background" alt="Hello World!"/>
                       <div className='console-text anim-typewriter'>
                       </div>
               
@@ -68,7 +57,7 @@ class Home extends Component {
                     {/* Service Technician Position */}
                     <div className='role'>
                     
-                    <img src={NowHiring} className="now-hiring" />
+                    <img src={NowHiring} className="now-hiring" alt=""/>
                     <br/>Service Technician<br/>
                       at Cummins Allison!
                     </div>
@@ -83,7 +72,7 @@ class Home extends Component {
                         of the machines I was responsible for:<br/><br/>
                         
                         <div className='video-container'>
-                        <iframe src="https://www.youtube.com/embed/4HqwtOMfq_4" allowFullScreen></iframe><br/><br/>
+                        <iframe src="https://www.youtube.com/embed/4HqwtOMfq_4" allowFullScreen title="Cash Counter"></iframe><br/><br/>
                         </div><br/>
                          However, I wanted more out of a career and was asked if I would be interested in moving to 
                          Chicago, Illinois  and becoming a technical trainer...
@@ -93,7 +82,7 @@ class Home extends Component {
                     {/* Technical Trainer Position */}
                     <div className='role'>
                     
-                    <img src={NowHiring} className="now-hiring" />
+                    <img src={NowHiring} className="now-hiring" alt=""/>
                     <br/>Technical Trainer<br/>
                       at Cummins Allison!
                     </div>
@@ -117,7 +106,7 @@ class Home extends Component {
                     {/* ASU Degree */}
                     <div className='role'>
                     
-                    <img src={NowGraduating} className="now-hiring" />
+                    <img src={NowGraduating} className="now-hiring" alt=""/>
                     <br/>B.S. Software Engineering<br/>
                       at Arizona State University!
                     </div>
@@ -151,7 +140,7 @@ class Home extends Component {
                     {/* Future Position */}
                     <div className='role'>
                     
-                    <img src={NowHiring} className="now-hiring" />
+                    <img src={NowHiring} className="now-hiring" alt=""/>
                     <br/>Software Developer
                       at<br/> <CompanyName></CompanyName>
                     </div>

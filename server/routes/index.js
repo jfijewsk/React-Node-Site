@@ -39,13 +39,18 @@ app.get('/api/checkToken', withAuth, function (req, res) {
 });
 
 /* GET visitor information (use middleware token check [withAuth])*/
-router.get('/api/visitors', withAuth, function (req, res, next) {
-    res.send("My API Visitor page");
+router.get('/api/visitors', withAuth, async (req, res) => {
+
+
+    controller.getAllHistory()
+    .then((result) => res.send(result));
+
+
 });
 
 
 /* Clear database. */
-router.get('/api/clear', function (req, res, next) {
+router.get('/api/clear', withAuth, function (req, res, next) {
     controller.clearDatabase();
     res.send('Database cleared');
 });

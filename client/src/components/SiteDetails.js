@@ -19,7 +19,7 @@ function SiteDetails() {
             Visually here is how it all comes together:
 
             </div>
-                <img src={MERN} className="image" />
+                <img src={MERN} className="image" alt="Site Design" />
         </div>
 
     )

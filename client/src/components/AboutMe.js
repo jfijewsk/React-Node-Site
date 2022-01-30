@@ -17,7 +17,7 @@ function AboutMe() {
                 </div>
 
                 <div className='image-caption-container'>
-                    <img src={notACoat} className="images" />
+                    <img src={notACoat} className="images" alt="What a coat is not" />
                     <div className='caption'>
                         Not a coat!
                     </div>
@@ -27,7 +27,7 @@ function AboutMe() {
             <div className='image-txt-container'>
 
                 <div className='image-caption-container'>
-                    <img src={EscapeRoom} className="images" />
+                    <img src={EscapeRoom} className="images" alt="Escaped!" />
                     <div className='caption'>
                         Escaped!
                     </div>
@@ -48,7 +48,7 @@ function AboutMe() {
                 </div>
 
                 <div className='image-caption-container'>
-                    <img src={Christmas} className="images" />
+                    <img src={Christmas} className="images" alt="Christmas!"/>
                     <div className='caption'>
                         The mop is the dog
                     </div>

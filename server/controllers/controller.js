@@ -51,19 +51,24 @@ function getClientAddress(req) {
  MongoDB 
 *******/
 
-/* Returns the entire database*/
+/* Return all visitor information from the database */
 async function getAllHistory(){
-    try{
+
         let db = await DbConnection.Get();
-        result = await db.collection("visitors").find({}).toArray(function(err, result) {
-            console.log(result);
-            return result;
-        });
-    }
-    catch(err){
-        console.log("Failed to get all database history\n" + err);
-    }
-}
+        return new Promise(function(resolve, reject) {
+            db.collection("visitors").find().toArray( function(err, docs) {
+             if (err) {
+               // Reject the Promise with an error
+               console.log("Failed to get all database history\n" + err);
+               return reject(err)
+             }
+       
+             // Resolve (or fulfill) the promise with data
+             return resolve(docs)
+           })
+         })
+       }
+
 
 /* Returns the visitors organization if it is in the MongoDB already*/
 /* Prevents the need to always call the outside IP API call for each visitor*/
@@ -94,13 +99,20 @@ async function addVisit(visit){
     }
 }
 
+
 /* Delete all database data */
 async function clearDatabase(){
     try {
         let db = await DbConnection.Get();
-        db.collection("visitors").drop();
-        console.log("Database cleared!\n");
-
+        var numInstances = await db.collection("visitors").estimatedDocumentCount();
+        console.log(numInstances);
+        if(numInstances > 0){
+            db.collection("visitors").drop();
+            console.log("Database cleared!\n");
+        }
+        else{
+            console.log("Database is already empty\n");
+        }
     }
 
     catch(err){

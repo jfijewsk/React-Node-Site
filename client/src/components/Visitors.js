@@ -1,29 +1,76 @@
-import React, { useState} from 'react';
-import Login from "./Login";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
 
 export default function Visitors() {
 
-    const [token, setToken] = useState();
-    const [message, setMessage] = useState();
-    //if(!token){
-    //    return <Login setToken={setToken}/>
-   // }
-    const getData = () => {
-        fetch("/api/visitors")
-        .then(res => res.text())
-        .then((res) => setMessage(res))
-        .catch(err => console.log(err));
+    const [visits, setVisits] = useState();
 
+
+    const clearDatabase = async () => {
+        await axios.get('/api/clear')
+            .then(res => {
+                return <>Database cleared!</>
+            })
+        refreshPage()
     }
 
-    getData()
+    function FormatData({ visit }) {
+        return (
+            <>
+                {visit.map(visit => (
+                    <li key={visit._id}>{visit.ip} {visit.org} {visit.date}</li>
+
+                ))}
+            </>
+        );
+    }
+
+    function GetData() {
+
+        // Data does't start loading
+        // until *after* getData is mounted
+
+        // Counter for only calling when something changed
+        useEffect(() => {
+            if (!visits) {
+                fetch("/api/visitors")
+                    .then(res => res.json())
+                    .then(data => setVisits(data));
+            }
+        }, []);
+
+        return (
+            <div>
+                <div>
+                    {visits && <FormatData visit={visits} />}
+                </div>
+            </div>
+
+        )
+    }
+
+    function refreshPage() {
+        window.location.reload(false);
+    }
+
 
     return (
-        
-
         <div>
-            {message}
-            This is the visitors page
+
+            <button onClick={clearDatabase}>
+                Clear Database
+            </button>
+            <button onClick={refreshPage}>
+                Refresh
+            </button>
+            <br />
+
+            <div>
+                <GetData />
+            </div>
+
+
 
         </div>
     )

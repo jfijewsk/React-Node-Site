@@ -1,89 +1,103 @@
 import React, { useState } from "react";
 import axios from 'axios';
-import { Navigate  } from 'react-router';
 import { useNavigate } from 'react-router-dom';
+import '../CSS/Login.css'
 
 export default function Login() {
 
-    const [user, setUser] = useState('');
-    const [pass, setPass] = useState('');
+  const [user, setUser] = useState('');
+  const [pass, setPass] = useState('');
+  const [error, setError] = useState('');
 
-    const navigate = useNavigate()
-
-    const handleUserChange = event => {
-        setUser(event.target.value)
-      };
-
-      const handlePassChange = event => {
-        setPass(event.target.value)
-      };
+  const navigate = useNavigate()
 
 
-      
+  const handleUserChange = event => {
+    setUser(event.target.value)
+  };
 
-      const handleSubmit = (e) => {
-        e.preventDefault();
-        // get our form data out of state
-    
-        axios.post('/api/authenticate', { user: user, pass: pass })
-            .then((result) => {
-                console.log(result.status);
-                if(result.status >= 200 && result.status < 300){
-                    return navigate('/visitors')
+  const handlePassChange = event => {
+    setPass(event.target.value)
+  };
 
-                }
-                else if (result.status === 401){
-                    console.log("wrong credientals");
-                    
-                }
-                else{
-                    console.log("Error. Please try again later");
-                }
-            }).catch(err => {
-                console.log("I caught this error");
-                console.log("Error. Please try again later");
-                console.log(err);
-                
-            });
-        
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
- 
-      }
+    axios.post('/api/authenticate', { user: user, pass: pass })
+      .then((result) => {
+        console.log(result.status);
+        if (result.status >= 200 && result.status < 300) {
+          return navigate('/visitors')
 
-
-
-    const auth = async () => {
-        console.log('trying to auth');
-        try {
-          const res = await axios.get('/api/clear', { auth: { username: 'admin', password: '123' } });
-          console.log(res.data);
-        } catch (e) {
-          console.log(e);
         }
-      };
 
-  return(
-    <form onSubmit={handleSubmit}>
-      <label>
-        <p>Username</p>
-        <input type="text" 
+      }).catch(err => {
+        console.log(err.response.status);
+
+        if (err.response.status === 401) {
+          console.log("wrong credientals");
+          setError(<p className="login_error">Invaild credientials.<br />
+            You are either not me or I mistyped like a dummy!</p>, { message: error });
+
+        }
+        else {
+          console.log("Error. Please try again later");
+          setError('apiError', { message: error });
+
+        }
+
+      });
+
+
+
+  }
+
+  const handleBack = (event) => {
+    navigate(-1)
+  }
+
+
+  return (
+    <div className="form_body">
+
+      <form onSubmit={handleSubmit}>
+        <p className="form_header">Login</p>
+        <label>
+          <p />
+          <input type="text"
             onChange={handleUserChange}
             value={user}
-            />
-      </label>
-      <label>
-        <p>Password</p>
-        <input type="password"
+            placeholder="Username"
+            className="login_textbox"
+            autoComplete="off"
+          />
+        </label>
+        <label>
+          <p />
+          <input type="password"
             onChange={handlePassChange}
             value={pass}
-            />
+            placeholder="Password"
+            className="login_textbox"
+            autoComplete="off"
+          />
+        </label>
+        <p />
+        <button type="submit" className="login_btn">Login</button>
+      </form>
+
+      <label className="login_status">{error}
       </label>
-      <div>
-        <button type="submit">Submit</button>
-      </div>
-    </form>
-      
+
+      <div className="login_message">
+        This is for me to view traffic data for the site and to interact with my database. If you are not me, you probably want to go back.
+       </div>
+
+       <button className="back_btn" onClick={handleBack}>Back</button>
+
+
+    </div>
   )
 
-  
+
 }

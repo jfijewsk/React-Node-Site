@@ -21,6 +21,15 @@
 }
 
 
+
+
+.form{
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
 .world {
     
      background-color: rgb(25,25,25);  

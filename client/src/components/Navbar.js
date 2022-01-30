@@ -3,6 +3,7 @@ import '../CSS/Navbar.css';
 import '../Assests/fonts/Montserrat-Regular.ttf';
 import CircleFace from '../Assests/images/Sue.png';
 import { Link } from 'react-router-dom';
+import ResumePDF from "../Assests/James Fijewski Resume.pdf"
 
 
 export default function Navbar() {
@@ -18,7 +19,7 @@ export default function Navbar() {
                 <nav className="navbar">
                     <div className='nav-logo-container'>
                     <Link to="/login">
-                        <img src={CircleFace} className="navbar-circleface"/>
+                        <img src={CircleFace} className="navbar-circleface" alt="Its me!"/>
                     </Link>    
                         <Link className='nav-logo' to="/">James Fijewski</Link>
                     </div >
@@ -29,7 +30,7 @@ export default function Navbar() {
                             <Link to="/aboutMe" className="nav-link" onClick={toggle}>About Me</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/resume" className="nav-link" onClick={toggle}>Resume</Link>
+                            <a href = {ResumePDF}  className="nav-link" target = "nav-link">Resume</a>
                         </li>
                         <li className="nav-item">
                             <Link to="/siteDetails" className="nav-link" onClick={toggle}>Site Details</Link>

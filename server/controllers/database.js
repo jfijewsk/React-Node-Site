@@ -13,6 +13,7 @@ var DbConnection = function () {
 
             return _db
         } catch (err) {
+            console.log('failed to init in database.js');
             console.log(err);
         }
     }
@@ -21,7 +22,6 @@ var DbConnection = function () {
         try {
 
             if (db != null) {
-                console.log('db connection is already alive');
                 return db;
             } else {
                 console.log('getting new db connection');
@@ -29,6 +29,7 @@ var DbConnection = function () {
                 return db; 
             }
         } catch (err) {
+            console.log('failed to get db instance in database.js');
             console.log(err);
         }
     }
