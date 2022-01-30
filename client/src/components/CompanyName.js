@@ -21,7 +21,7 @@ export default class CompanyName extends React.Component {
 
       render () {
         console.log("This is what react sees" + JSON.stringify(this.state));
-        console.log("/n" + JSON.stringify(this.compName));
+        console.log("/n" + JSON.stringify(this.state.compName));
 
         if(this.state.apiSuccess === 'fail' || this.state.compName === this.state.ispName){
             this.state.compName = 'Your Company';
