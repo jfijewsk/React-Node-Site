@@ -3,10 +3,11 @@ var DbConnection = require('./database');
 
 /* Custom class for visit information */
 class Visit {
-    constructor(ip, org = "your company"){
+    constructor(ip, org = "N/A"){
         this.ip = ip;
         this.org = org;
         this.date = new Date().toLocaleString("en-US", {timeZone: "America/Chicago"})
+        
     }
 }
 

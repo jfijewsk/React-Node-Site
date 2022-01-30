@@ -95,7 +95,7 @@ class Home extends Component {
                           was expected to memorize every step. We had around 6-7 main classes with roughly 2 week durations in our curriculum. 
                           <br/><br/>
                           I was able to meet with people from all over the world 
-                          and interact with people I would have never been able to connect with if I did not take this role. In addtion, seeing the light bulb go off when you convey an 
+                          and interact with people I would have never been able to connect with if I did not take this role. In addition, seeing the light bulb go off when you convey an 
                           idea to someone is a very satisfying reward. However, while having aspects of personal satisfaction sprinkled in did not offset the lack of creativity I am looking 
                           for. Once I had mastered instructing all of our classes, besides the people, each day was the same so I started too look for a new field to learn.
               
@@ -123,7 +123,7 @@ class Home extends Component {
                           </li><br/>
                           <li className='ASU-list'>
                             ASU offered an online degree that closely mirrored other engineering fields. Some online degrees I looked into did not cover mathematics or other core engineering 
-                            courses. In addition, the degree is ABET accredided. 
+                            courses. In addition, the degree is ABET accredited. 
                           </li><br/>
                           <li className='ASU-list'>
                             There are a lot of online schools that are relatively new and I was not sure if I would get a good education from them. ASU was established in 1885 and
@@ -147,8 +147,8 @@ class Home extends Component {
               
                       <div className='job-description'> 
                         <div className='job-text'>
-                        So here we are. You are looking for a software deveopler and I am looking to join a software deveoplment team. I would love a chance to grow as an 
-                        indivudal within your team if you give me a chance. <br/><br/>
+                        So here we are. You are looking for a software developer and I am looking to join a software development team. I would love a chance to grow as an 
+                        individual within your team if you give me a chance. <br/><br/>
                         
                         I want to thank for your time to learn about me and for humoring my personal website. 
                         </div>
