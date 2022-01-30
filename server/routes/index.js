@@ -97,7 +97,7 @@ router.get('/api/json', async (req, res) => {
     // Log vistor traffic in the database
     console.log("Logging visit \n" + JSON.stringify(visit));
     controller.addVisit(visit);
-    res.sendStatus(200);
+    res.send(visit);
 
 }
 
