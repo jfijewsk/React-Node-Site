@@ -72,7 +72,7 @@ router.get('/api/json', async (req, res) => {
     if (result) {
         // Found the IP in the database
         console.log("same visitor");
-        visit = new controller.Visit(visitorIP, result.org);
+        visit = new controller.Visit(visitorIP, result.org, result.isp);
     }
     else {
         // New Visitor based of IP
@@ -82,8 +82,8 @@ router.get('/api/json', async (req, res) => {
         await axios.get(url)
             .then(response => {
                 console.log("axios response: " + response.data.status);
-                // console.log(response.data);
-                visit = new controller.Visit(visitorIP, response.data.org);
+                console.log(response.data);
+                visit = new controller.Visit(visitorIP, response.data.org, response.data.isp);
                 //res.send(response.data);
             })
             .catch(error => {

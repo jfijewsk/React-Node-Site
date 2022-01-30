@@ -6,7 +6,8 @@ export default class CompanyName extends React.Component {
   
       this.state = {compName: 'Your Company', 
                     apiAddress: '/api/json',
-                    apiSuccess: 'fail'};
+                    apiSuccess: 'fail',
+                    ispName: 'unknown'};
     }
   
     componentDidMount() {
@@ -23,13 +24,23 @@ export default class CompanyName extends React.Component {
         console.log("This is what react sees" + JSON.stringify(this.state));
         console.log("/n" + JSON.stringify(this.state.compName));
 
-        if(this.state.apiSuccess === 'fail' || this.state.compName === this.state.ispName){
-            this.state.compName = 'Your Company';
+        var cleanedName = this.state.compName.replace(/,?\s*(llc|inc|co)\.?$/i, "")
+        console.log("clean name  " + cleanedName)
+        console.log("ispname " + this.state.ispName)
+        var cleanedISP = this.state.ispName.replace(/,?\s*(llc|inc|co)\.?$/i, "")
+
+        if(this.state.apiSuccess === 'fail' || cleanedName === cleanedISP){
+          cleanedName = "Your Company"
         }
+
+        else {
+          cleanedName = this.state.compName.replace(/,?\s*(llc|inc|co)\.?$/i, "")
+        }
+
 
           return(
         <>
-        {this.state.compName} 
+        {cleanedName} 
 
     </>
       );}

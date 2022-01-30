@@ -3,11 +3,11 @@ var DbConnection = require('./database');
 
 /* Custom class for visit information */
 class Visit {
-    constructor(ip, org = "Your Company") {
+    constructor(ip, org = "Your Company", isp = "none") {
         this.ip = ip;
         this.org = org;
         this.date = new Date().toLocaleString("en-US", { timeZone: "America/Chicago" })
-
+        this.isp = isp
     }
 }
 
@@ -57,7 +57,7 @@ async function getAllHistory() {
 
     let db = await DbConnection.Get();
     return new Promise(function (resolve, reject) {
-        db.collection("visitors").find().toArray(function (err, docs) {
+        db.collection("visitors").find().toArray(function (err, visits) {
             if (err) {
                 // Reject the Promise with an error
                 console.log("Failed to get all database history\n" + err);
@@ -65,7 +65,7 @@ async function getAllHistory() {
             }
 
             // Resolve (or fulfill) the promise with data
-            return resolve(docs)
+            return resolve(visits)
         })
     })
 }
