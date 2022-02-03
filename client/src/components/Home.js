@@ -40,8 +40,8 @@ class Home extends Component {
                       </div>
                       <div className='divider'></div>
                       <div className='main-text'> 
-                        Motivated and self-driven indivudual with experience working in an technical environment.
-                        Recent Software Engineering graduate excited to enter a software deveolpment career.<br /><br />
+                        Motivated and self-driven individual  with experience working in an technical environment.
+                        Recent Software Engineering graduate excited to enter a software development  career.<br /><br />
               
                         Contact me at: <br />
                         817-992-5652<br />
